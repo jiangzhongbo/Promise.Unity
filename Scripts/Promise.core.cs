@@ -6,10 +6,10 @@ namespace UPromise
 {
     public partial class Promise
     {
-        public delegate void cb(object value);
+        public delegate void CB(object value);
         public delegate object cb_with_result(object value);
 
-        public delegate void exec(cb a, cb b);
+        public delegate void exec(CB a, CB b);
 
         private class Deferred
         {
@@ -66,7 +66,7 @@ namespace UPromise
             return res;
         }
 
-        public Promise Then(cb onFulfilled = null, cb onRejected = null)
+        public Promise Then(CB onFulfilled = null, CB onRejected = null)
         {
             var res = new Promise(noop);
             handle(new Deferred(
@@ -222,7 +222,7 @@ namespace UPromise
             }
         }
 
-        private object tryCallTwo(exec fn, cb a, cb b)
+        private object tryCallTwo(exec fn, CB a, CB b)
         {
             try
             {

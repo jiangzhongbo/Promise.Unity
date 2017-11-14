@@ -18,7 +18,7 @@ namespace UPromise
             return Then(null, onRejected);
         }
 
-        public Promise Catch(cb onRejected)
+        public Promise Catch(CB onRejected)
         {
             return Then(null, onRejected);
         }
