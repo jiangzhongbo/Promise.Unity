@@ -23,6 +23,9 @@ namespace UPromise
                     Promise.Resolve(cb()).Then( _ =>
                     {
                         throw reason as Exception;
+#if UNITY_3_5 
+                        return;
+#endif
                     });
                 });
         }
